@@ -37,4 +37,4 @@ description = "Play snake by tilting your tildagon badge. Press CONFIRM to start
 # increased, we interpret this as a new version being released.
 #
 # Version number must be an integer!
-version = "1.0.0"
+version = "1.0.1"
