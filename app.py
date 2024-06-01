@@ -68,6 +68,22 @@ class SnakeIMUApp(app.App):
                     self.direction = "LEFT"
                     self.game = "ON"
 
+        # Only move snake every half second
+        self.step = self.step + delta
+        if self.game == "ON":
+            if self.step > 400:
+                self.step = 0
+                self._move_snake()
+        elif self.game == "OVER":
+            self.dialog = YesNoDialog(
+                message="Game Over.\nPlay Again?",
+                on_yes=self._reset,
+                on_no=self._exit,
+                app=self,
+            )
+            # Reset the game variable to ensure this dialog is only created once
+            self.game = ""
+            self.direction = ""
     def _move_snake(self):
         first_x, first_y = self.snake[0]
         if self.direction == "RIGHT":
