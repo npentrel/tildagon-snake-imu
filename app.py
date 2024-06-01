@@ -76,7 +76,7 @@ class SnakeIMUApp(app.App):
                 self._move_snake()
         elif self.game == "OVER":
             self.dialog = YesNoDialog(
-                message="Game Over.\nPlay Again?",
+                message="Oh no. Play Again?",
                 on_yes=self._reset,
                 on_no=self._exit,
                 app=self,
